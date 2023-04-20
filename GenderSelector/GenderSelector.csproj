@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove=".gitignore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TrimmerRootDescriptor Include="Roots.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Avalonia.Diagnostics" Version="11.0.0-preview6" Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'" />
+	  <PackageReference Include="Avalonia" Version="11.0.0-preview6" />
+	  <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview6" />
+	  <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.0-preview6" />
+	  <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0-preview6" />
+  </ItemGroup>
+</Project>
