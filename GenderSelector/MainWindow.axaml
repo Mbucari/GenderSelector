@@ -2,69 +2,30 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="500"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+		xmlns:controls="clr-namespace:GenderSelector.Controls"
         x:Class="GenderSelector.MainWindow"
-        Title="Gender Selector">
+        Title="Gender Selector v2">
+	
+	<Grid ColumnDefinitions="Auto,Auto">
 
-	<Grid RowDefinitions="Auto,*">
-		<StackPanel Orientation="Horizontal">
-			<TextBlock Text="Male " VerticalAlignment="Center" />
-			<Slider Width="200" Minimum="0" Maximum="1" LargeChange="0.01" SmallChange="0.001" Value="{Binding ZeroToOne}" />
-			<TextBlock Text=" Female" VerticalAlignment="Center" />
+		<StackPanel Orientation="Vertical">
+		<controls:Slider2D
+			VerticalAlignment="Top"
+			Name="slider"
+			Margin="10"
+			Width="150"
+			Height="150"
+			BorderBrush="Black"
+			BorderThickness="2" />
+
+			<CheckBox Margin="10,0" Name="queer" IsThreeState="False" IsChecked="False" IsCheckedChanged="Queer_IsCheckedChanged" >
+				<TextBlock Text="Binary" />
+			</CheckBox>
 		</StackPanel>
-		<Canvas Grid.Row="1" Width="500" Height="500">
+		
+		<controls:GenderIcon VerticalAlignment="Top" Grid.Column="1" Value="{Binding #slider.ValueY}" />
+		<controls:GenderIcon VerticalAlignment="Top" Grid.Column="1" Value="{Binding #slider.ValueX}"/>
 
-			<!--center circle-->
-			<Path Fill="{Binding FillColor}" Data="M250,150
-			  a 100,100 0 0 0 0,200
-			  a 100,100 0 0 0 0,-200
-			  m0,10
-			  a 90,90 0 0 0 0,180
-			  a 90,90 0 0 0 0,-180"/>
-
-			<!--line protruding from circle-->
-			<Rectangle Fill="{Binding FillColor}" Width="10" Height="130">
-				<Rectangle.RenderTransform>
-					<TransformGroup>
-						<TranslateTransform X="245" Y="345" />
-						<RotateTransform CenterX="245" CenterY="185" Angle="{Binding Rotate1}" />
-					</TransformGroup>
-				</Rectangle.RenderTransform>
-			</Rectangle>
-
-			<!--Leg 1-->
-			<Canvas Width="50" Height="10">
-				<Canvas.RenderTransform>
-					<TransformGroup>
-						<TranslateTransform X="250" Y="420" />
-						<RotateTransform CenterX="225" CenterY="245" Angle="{Binding Rotate1}" />
-					</TransformGroup>
-				</Canvas.RenderTransform>
-				<Rectangle Fill="{Binding FillColor}" Width="50" Height="10">
-					<Rectangle.RenderTransform>
-						<TransformGroup>
-							<RotateTransform CenterX="32" CenterY="20" Angle="{Binding Rotate3}" />
-						</TransformGroup>
-					</Rectangle.RenderTransform>
-				</Rectangle>
-			</Canvas>
-
-			<!--Leg 2-->
-			<Canvas Width="50" Height="10">
-				<Canvas.RenderTransform>
-					<TransformGroup>
-						<TranslateTransform X="200" Y="420" />
-						<RotateTransform CenterX="225" CenterY="245" Angle="{Binding Rotate1}" />
-					</TransformGroup>
-				</Canvas.RenderTransform>
-				<Rectangle Fill="{Binding FillColor}" Width="50" Height="10">
-					<Rectangle.RenderTransform>
-						<TransformGroup>
-							<RotateTransform CenterX="-32" CenterY="20" Angle="{Binding Rotate2}" />
-						</TransformGroup>
-					</Rectangle.RenderTransform>
-				</Rectangle>
-			</Canvas>
-		</Canvas>
 	</Grid>
 </Window>

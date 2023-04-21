@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="GenderSelector.Controls.Slider2D">
+
+	<Canvas Name="canvas" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+		<Thumb
+			Name="thumb"
+			Width="{DynamicResource SliderHorizontalThumbWidth}"
+			Height="{DynamicResource SliderHorizontalThumbHeight}"
+			Margin="0"
+			Padding="0"
+			Canvas.Top="0"
+			Canvas.Left="0"
+			Background="{DynamicResource SliderThumbBackground}"
+			BorderThickness="0"
+			Theme="{StaticResource FluentSliderThumbTheme}"/>
+	</Canvas>
+</UserControl>

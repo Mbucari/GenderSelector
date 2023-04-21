@@ -3,5 +3,5 @@
              x:Class="GenderSelector.App">
     <Application.Styles>
         <FluentTheme />
-    </Application.Styles>
+	</Application.Styles>
 </Application>
